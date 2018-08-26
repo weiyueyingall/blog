@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>博客管理系统</title>
-    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
-    <link rel="stylesheet" href="./less/index.css">
-    <script src="./assets/jquery/jquery.min.js"></script>
-    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./assets/nprogress/nprogress.js"></script>
-    <script src="./libs/common.js"></script>
-</head>
-<body>
+
     
     <!-- 侧边栏 -->
     <div class="aside">
@@ -28,7 +14,7 @@
         <div class="navs">
             <ul class="list-unstyled">
                 <li>
-                    <a href="./index.html">
+                    <a href="./index.html" class="active">
                         <i class="fa fa-dashboard"></i>
                         仪表盘
                     </a>
@@ -39,9 +25,9 @@
                         文章管理
                         <i class="arrow fa fa-angle-right"></i>
                     </a>
-                    <ul class="list-unstyled show">
+                    <ul class="list-unstyled">
                         <li>
-                            <a href="./blog_add.html" class="active">
+                            <a href="./blog_add.html">
                                  写文章
                             </a>
                         </li>
@@ -87,36 +73,65 @@
                     </ul>
                 </nav>          
             </div>
-            <!-- 写文章 -->
-            <div class="body blog">
-                <!-- 面包屑 -->
-                <ol class="breadcrumb">
-                    <li><a href="javascript:;">文章管理</a></li>
-                    <li class="active">写文章</li>
-                </ol>
+            <!-- 个人资料 -->
+            <div class="body center">
                 <div class="settings">
-                    <form id="editForm" class="form-horizontal">
+                    <form id="settingsForm" class="form-horizontal">
                         <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">标题</label>
-                            <div class="col-xs-6">
+                            <label for="" class="col-xs-3 control-label">头像</label>
+                            <div class="col-xs-2 preview">
+                                <img src="./images/default.png">
+                                <input type="file" id="upfile">
+                                <div class="cover">
+                                    <i class="fa fa-upload"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">用户名</label>
+                            <div class="col-xs-5">
                                 <input type="text" class="form-control input-sm">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">摘要</label>
-                            <div class="col-xs-6 ckeditor">
+                            <label for="" class="col-xs-3 control-label">性别</label>
+                            <div class="col-xs-3">
+                                <label class="radio-inline">
+                                    <input type="radio" checked> 男
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio"> 女
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">手机号码</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">就职公司</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">个人主页</label>
+                            <div class="col-xs-5">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-xs-3 control-label">个性签名</label>
+                            <div class="col-xs-5 ckeditor">
                                 <textarea name="" rows="5" class="form-control input-sm"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="" class="col-xs-3 control-label">内容</label>
-                            <div class="col-xs-6">
-                                <textarea id="ckeditor" class="form-control input-sm"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-xs-9">
-                                <input type="submit" class="btn btn-success btn-sm pull-right" value="保 存">
+                            <div class="col-xs-8">
+                                <input type="submit" value="保 存" class="btn btn-success btn-sm pull-right">
+                                <a href="./repass.html" class="btn btn-link btn-sm pull-right">更改密码？</a>
                             </div>
                         </div>
                     </form>
@@ -124,18 +139,3 @@
             </div>
         </div>
     </div>
-    <script src="./assets/ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace('ckeditor', {
-            toolbarGroups: [
-                { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-                { name: 'forms' },
-                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-                { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-                { name: 'styles' },
-                { name: 'colors' }
-            ]
-        });
-    </script>
-</body>
-</html>

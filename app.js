@@ -1,12 +1,44 @@
 const express = require('express');
+
+const hdbs = require('express-handlebars');
+
+const path = require('path');
+
+
 const app = express();
 
-//当客户端以get请求时的响应
-app.get('/', (req, res) => {
-    res.send('hollo blog');
-})
 
 
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.engine('handlebars', hdbs({
+    partialsDir: [{
+        dir: path.join(__dirname, 'views', 'home', 'partials'),
+        namespace: 'home'
+    }, {
+        dir: path.join(__dirname, 'views', 'admin', 'partials'),
+        namespace: 'admin'
+    }],
+    layoutsDir: path.join(__dirname, 'views', 'layouts'),
+    defaultLayout: 'home'
+
+
+}))
+
+
+
+app.set('views', path.join(__dirname, 'views'));
+
+app.set('view engine', 'handlebars');
+
+const home = require('./routes/home.js')
+
+app.use('/home', home);
+
+const admin = require('./routes/admin.js');
+
+app.use('/admin', admin);
 
 app.listen(3000, (err) => {
     if (!err) {
