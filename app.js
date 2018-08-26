@@ -4,10 +4,14 @@ const hdbs = require('express-handlebars');
 
 const path = require('path');
 
+const bodtparser = require('body-parser');
+
+const md5 = require('md5');
+
 
 const app = express();
 
-
+app.use(bodtparser.urlencoded({ extended: false }));
 
 
 app.use(express.static(path.join(__dirname, 'public')));
