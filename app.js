@@ -8,8 +8,17 @@ const bodtparser = require('body-parser');
 
 const md5 = require('md5');
 
+const session = require('express-session');
+
 
 const app = express();
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+
+}))
 
 app.use(bodtparser.urlencoded({ extended: false }));
 

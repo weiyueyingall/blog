@@ -44,6 +44,25 @@ home.post('/register', (req, res) => {
     })
 })
 
+home.post('/login', (req, res) => {
+    let { eamil, pass } = req.body;
+    let sql3 = 'select * from users where email =?'
+    connect.query(sql3, email, (err, rows) => {
+        if (rows.length == 0) {
+            res.send({ error: 400, message: '用户名不存在' });
+        } else {
+            if (md5(pass) == rows[0].pass) {
+                req.session.isLogin = true;
+                res.send({ success: true, message: '登录成功' })
+
+            } else {
+                res.send({ error: 300, messqge: '用户名或密码错误' })
+            }
+        }
+    })
+
+})
+
 
 
 

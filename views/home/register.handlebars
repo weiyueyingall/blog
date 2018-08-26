@@ -45,7 +45,7 @@
         var formData = $(this).serializeToJson();
         $.ajax({
             type:'post',
-            dataType:formData,
+            data:formData,
             url:'/home/register',
             success:function(response){
                 if(response.success){
